@@ -1,0 +1,213 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = KeepCalmGymApplication
+build_property.RootNamespace = KeepCalmGymApplication
+build_property.ProjectDir = C:\Users\educom\Documents\NWU\CMPG223\Project\gymapplication\KeepCalmGymApplication\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\educom\Documents\NWU\CMPG223\Project\gymapplication\KeepCalmGymApplication
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Contract/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhY3RcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Contract/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhY3RcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Contract/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhY3RcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Contract/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhY3RcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Contract/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhY3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymAttendance/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQXR0ZW5kYW5jZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymAttendance/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQXR0ZW5kYW5jZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymAttendance/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQXR0ZW5kYW5jZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymAttendance/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQXR0ZW5kYW5jZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymAttendance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQXR0ZW5kYW5jZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClassAttendance/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NBdHRlbmRhbmNlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClassAttendance/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NBdHRlbmRhbmNlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClassAttendance/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NBdHRlbmRhbmNlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClassAttendance/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NBdHRlbmRhbmNlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClassAttendance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NBdHRlbmRhbmNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClass/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClass/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClass/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClass/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymClass/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltQ2xhc3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymEmployees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltRW1wbG95ZWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymEmployees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltRW1wbG95ZWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymEmployees/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltRW1wbG95ZWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymEmployees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltRW1wbG95ZWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/GymEmployees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3ltRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Members/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Members/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Members/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Members/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Members/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Payment/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Payment/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Payment/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Payment/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Payment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Report/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Report/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Report/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Report/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Report/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/educom/Documents/NWU/CMPG223/Project/gymapplication/KeepCalmGymApplication/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pq3w26g0mp

@@ -1,0 +1,209 @@
+@model KeepCalmGymApplication.Models.Report
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Report</h4>
+    <hr />
+    <dl class="row">
+    </dl>
+</div>
+
+<div>
+    <div>
+        <button class="btn btn-primary" id="backToList">Back to List</button> |
+        <label for="yearDropdown">Select Year:</label>
+        <select  id="yearDropdown">
+            <option class="dropdown-item" value="2022">2022</option>
+            <option class="dropdown-item" value="2023">2023</option>
+        </select>
+    </div>
+</div>
+<!-- Add a canvas element to render the chart -->
+<canvas id="myChart" data-report-id="@Model.ReportID" width="400" height="250"></canvas>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.getElementById('backToList').addEventListener('click', function () {
+            /// <summary>
+            /// </summary>
+            window.location.href = '/Report';
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            /// <summary>
+            /// </summary>
+            console.log("Document is ready. Initiating report fetch...");
+
+            const currentYear = (new Date()).getFullYear();
+            fetchReportAndRenderChart(currentYear);  // Trigger the default fetch on page load
+
+            document.getElementById('yearDropdown').addEventListener('change', function () {
+                const selectedYear = parseInt(this.value, 10);
+                fetchReportAndRenderChart(selectedYear);
+            });
+        });
+
+
+        let myChartInstance;
+
+        function loadDataForYear(year) {
+            /// <summary>
+            /// Loads the data for year.
+            /// </summary>
+            /// <param name="year">The year.</param>
+            fetchReportAndRenderChart(year);
+        }
+
+        /// <summary>
+        /// Fetches the report and render chart.
+        /// </summary>
+        /// <param name="year">The year.</param>
+        function fetchReportAndRenderChart(year = (new Date()).getFullYear() - 1) {
+            let reportIdElement = document.getElementById('myChart');
+            let reportId = reportIdElement.getAttribute('data-report-id');  // Get the report ID from the data attribute
+            console.log("Report ID:", reportId);
+
+            fetch(`/Report/GetLabelsFunctionName`)
+                .then(response => response.json())
+                .then(labels => {
+                    return fetch(`/Report/GetReportParameters?reportId=${reportId}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error("Failed to fetch report parameters.");
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            let functionName = data.functionName;
+                            console.log(`Fetching report data from URL: /Report/${functionName}?year=${year}`);
+                            return fetch(`/Report/${functionName}?year=${year}`)
+                                .then(dataResponse => {
+                                    if (!dataResponse.ok) {
+                                        dataResponse.text().then(text => {
+                                            console.log("Error Response Text:", text);
+                                        });
+                                        throw new Error("Failed to fetch report data.");
+                                    }
+                                    return dataResponse.json().then(reportData => {
+                                        return {
+                                            reportData,
+                                            reportType: data.reportType,
+                                            labels
+                                        };
+                                    });
+                                });
+                        });
+                })
+                .then(({ reportData, reportType, labels }) => {
+                    if (reportId === "4") {
+                        console.log("Labels:", labels);   // Debugging: view labels for reportId 4
+                        console.log("Report Data:", reportData);   // Debugging: view report data for reportId 4
+
+                        const datasets = [];
+                        const backgroundColors = ['#FF5733', '#33FF57', '#5733FF', '#FF33F6', '#FFD133']; // Colors for top 5 classes
+
+                        let distinctClasses = [...new Set(reportData.map(item => item.ClassName))];  // Get distinct class names
+                        console.log("Distinct Classes:", distinctClasses);   // Debugging: view distinct classes for reportId 4
+
+                        distinctClasses.forEach((className, index) => {
+                            /// <summary>
+                            /// </summary>
+                            /// <param name="className">Name of the class.</param>
+                            /// <param name="index">The index.</param>
+                            let dataForClass = Array(12).fill(0);  // 12 months, initialize with zeros
+
+                            reportData.forEach(item => {
+                                /// <summary>
+                                /// </summary>
+                                /// <param name="item">The item.</param>
+                                if (item.ClassName === className) {
+                                    dataForClass[item.Month - 1] = item.AttendanceCount;  // Month is 1-based
+                                }
+                            });
+
+                            datasets.push({
+                                label: className,
+                                data: dataForClass,
+                                backgroundColor: backgroundColors[index]
+                            });
+                        });
+
+                        console.log("Datasets:", datasets);   // Debugging: view datasets for reportId 4
+
+                        const chartStructure = {
+                            type: 'bar',
+                            data: {
+                                labels: labels,
+                                datasets: datasets
+                            },
+                            options: {
+                                scales: {
+                                    x: { beginAtZero: true },
+                                    y: {
+                                        beginAtZero: true,
+                                        stacked: true
+                                    }
+                                }
+                            }
+                        };
+                        renderChart(chartStructure);
+                    } else {
+                        let dataValues = reportData.map(item => item[reportType.dataProperty]);
+                        const chartStructure = {
+                            type: reportType.type,
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    label: reportType.label,
+                                    data: dataValues,
+                                    backgroundColor: reportType.backgroundColor,
+                                    borderColor: reportType.borderColor,
+                                    borderWidth: 1
+                                }]
+                            }
+                        };
+                        renderChart(chartStructure);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error occurred:", error);
+                });
+        }
+
+
+
+
+        function renderChart(chartStructure) {
+            console.log("Rendering chart...");
+            /// <var>The CTX</var>
+            var ctx = document.getElementById('myChart').getContext('2d');
+
+            // Destroy the previous chart if it exists
+            if (myChartInstance) {
+                myChartInstance.destroy();
+            }
+
+            myChartInstance = new Chart(ctx, chartStructure);  // Store the new chart reference
+            console.log("Chart rendered!");
+        }
+
+
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+}

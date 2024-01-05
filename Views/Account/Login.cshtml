@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model KeepCalmGymApplication.ViewModels.LoginViewModel
+
+<h2>Login</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Username">Username:</label>
+        <input type="text" class="form-control" id="Username" name="Username" required />
+        <span class="text-danger" id="UsernameError"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Password">Password:</label>
+        <input type="password" class="form-control" id="Password" name="Password" required />
+        <span class="text-danger" id="PasswordError"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label for="UserType">I am a:</label>
+        <select class="form-control" id="UserType" name="UserType">
+            <option value="Member">Member</option>
+            <option value="GymEmployee">Gym Employee</option>
+        </select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+
+        $(document).ready(function () {
+            /// <summary>
+            /// </summary>
+            $('form').submit(function (e) {
+                /// <summary>
+                /// </summary>
+                /// <param name="e">The e.</param>
+                let isValid = true;
+
+                // Validate Username
+                if ($('#Username').val().trim() === "") {
+                    isValid = false;
+                    $('#UsernameError').text('Please enter a username.');
+                } else {
+                    $('#UsernameError').text('');
+                }
+
+                // Validate Password
+                if ($('#Password').val().trim() === "") {
+                    isValid = false;
+                    $('#PasswordError').text('Please enter a password.');
+                } else {
+                    $('#PasswordError').text('');
+                }
+
+                if (!isValid) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+    </script>
+
+}

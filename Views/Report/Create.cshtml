@@ -1,0 +1,84 @@
+@model KeepCalmGymApplication.Models.Report
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Report</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="selectedTable">Select Table</label>
+                <select id="selectedTable" class="form-control">
+                    <!-- Example: <option value="TableName">TableName</option> -->
+                    <!-- You'd populate this dynamically from your backend. -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Select Columns</label>
+                <div id="columnCheckboxes">
+                    <!-- Example: <input type="checkbox" name="selectedColumns" value="ColumnName"> ColumnName<br> -->
+                    <!-- You'd populate this dynamically based on the selected table. -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<!-- CDN For drawing graphs -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            // Fetch tables and populate dropdown
+            /// <summary>
+            /// </summary>
+            $.get('/YourController/GetTables', function (data) {
+                /// <summary>
+                /// </summary>
+                /// <param name="data">The data.</param>
+                let dropdownOptions = '';
+                for (let table of data) {
+                    dropdownOptions += `<option value="${table}">${table}</option>`;
+                }
+                $('#selectedTable').html(dropdownOptions);
+            });
+
+            // Listen to table selection change to populate columns
+            $('#selectedTable').on('change', function () {
+                const selectedTable = $(this).val();
+
+                // Fetch columns related to this table
+                $.get(`/YourController/GetColumns?tableName=${selectedTable}`, function (data) {
+                    let checkboxesHtml = '';
+                    for (let column of data) {
+                        checkboxesHtml += `<input type="checkbox" name="selectedColumns" value="${column}"> ${column}<br>`;
+                    }
+                    $('#columnCheckboxes').html(checkboxesHtml);
+                });
+            });
+        });
+
+
+    </script>
+}

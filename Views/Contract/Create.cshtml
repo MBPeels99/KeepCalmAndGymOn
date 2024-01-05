@@ -1,0 +1,176 @@
+@model KeepCalmGymApplication.Models.Contract
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Contract</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- First Name -->
+            <div class="form-group">
+                <label for="FirstName" class="control-label">First Name</label>
+                <input id="FirstName" name="FirstName" class="form-control" value="@ViewBag.FirstName" readonly />
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+                <label for="LastName" class="control-label">Last Name</label>
+                <input id="LastName" name="LastName" class="form-control" value="@ViewBag.LastName" readonly />
+            </div>
+
+
+            <!-- StartDate -->
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" name="StartDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+
+            <!-- MembershipType -->
+            <div class="form-group">
+                <label asp-for="MembershipType" class="control-label"></label>
+                <select asp-for="MembershipType" id="MembershipType" name="MembershipType" class="form-control" onchange="updateContractDetails()">
+                    @foreach (var type in ViewBag.MembershipTypes)
+                    {
+                        <option value="@type.Key">@type.Key</option>
+                    }
+                </select>
+                <span asp-validation-for="MembershipType" class="text-danger"></span>
+            </div>
+
+
+            <!-- Duration -->
+            <div class="form-group">
+                <label for="Duration">Duration</label>
+                <select id="Duration" name="Duration" class="form-control">
+                    <option value="6">6 months</option>
+                    <option value="12">1 year</option>
+                    <option value="24">2 years</option>
+                </select>
+            </div>
+
+            
+
+            <!-- Submit -->
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <!-- Contract Details -->
+    <div class="col-md-4">
+        <h5>Contract Details</h5>
+        <textarea id="ContractDetails" class="form-control" rows="6" readonly></textarea>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        /// <var>The membership types</var>
+        var membershipTypes = @Html.Raw(Json.Serialize(ViewBag.MembershipTypes));
+
+        function updateContractDetails() {
+            /// <summary>
+            /// Updates the contract details.
+            /// </summary>
+            let membershipType = $("#MembershipType").val();
+
+            let details = membershipTypes[membershipType];
+            //console.log(membershipTypes[membershipType]);
+            $("#ContractDetails").text(details);
+        }
+
+        $(document).ready(function () {
+            /// <summary>
+            /// </summary>
+            $("#MembershipType").change(function () {
+                /// <summary>
+                /// </summary>
+                updateContractDetails();
+            });
+        });
+
+        function createContract() {
+            // Get the start date
+            /// <summary>
+            /// Creates the contract.
+            /// </summary>
+            let startDateStr = $('input[name="StartDate"]').val();
+            console.log('Start Date String:', startDateStr);
+
+
+            // Convert the start date string to a Date object
+            let startDate = new Date(startDateStr);
+
+            // Get the duration in months from the select box
+            let durationMonths = parseInt($('#Duration').val());
+            console.log('Duration:', durationMonths);
+
+
+            // Calculate the end date
+            let endDate = new Date(startDate);
+            endDate.setMonth(startDate.getMonth() + durationMonths);
+            console.log('End Date Object:', endDate);
+
+            console.log('Start Date ISO:', startDate.toISOString());
+            console.log('End Date ISO:', endDate.toISOString());
+
+
+            // Construct the contract data
+            var contractData = {
+                StartDate: startDate.toISOString(),
+                EndDate: endDate.toISOString(),
+                MembershipType: $('#MembershipType').val(),
+                MemberId: 1
+            };
+            console.log(contractData);
+
+            // Now send this data using AJAX to your server
+            $.ajax({
+                url: "@Url.Action("Create", "Contract")",               // This should be the URL where you handle the contract creation
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(contractData),
+                success: function (response) {
+                    if (response.success) {
+                        window.location.href = response.redirectUrl;
+                    } else {
+                        alert('Error: ' + response.message);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('An error occurred... Check the console for more information.');
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
+
+        // This will override the form's default submit behavior
+        $('form[asp-action="Create"]').submit(function (e) {
+            e.preventDefault();
+            createContract();
+        });
+
+
+    </script>
+}
+

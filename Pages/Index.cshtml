@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Keep Calm and Gym On";
+}
+
+<div class="container text-center mt-5">
+    <!-- Gym Name and Tagline -->
+    <h1 class="display-3">Keep Calm and Squat On</h1>
+    <p class="lead">Embracing the Conventional Approach to Fitness</p>
+
+    <!-- Gym's Key Features -->
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <img src="~/images/weightlifting-icon.png" alt="Weightlifting" class="img-fluid mb-2 gym-icon">
+            <h4>Weightlifting</h4>
+            <p>Forge strength and power with our state-of-the-art equipment.</p>
+        </div>
+        <div class="col-md-3">
+            <img src="~/images/bodybuilding-icon.png" alt="Bodybuilding" class="img-fluid mb-2 gym-icon">
+            <h4>Bodybuilding</h4>
+            <p>Carve your body to perfection with our curated workouts.</p>
+        </div>
+        <div class="col-md-3">
+            <img src="~/images/pilates-icon.png" alt="Pilates" class="img-fluid mb-2 gym-icon">
+            <h4>Pilates</h4>
+            <p>Strengthen your core and improve flexibility with Pilates.</p>
+        </div>
+        <div class="col-md-3">
+            <img src="~/images/yoga-icon.png" alt="Yoga" class="img-fluid mb-2 gym-icon">
+            <h4>Yoga</h4>
+            <p>Find your inner peace and balance with our Yoga sessions.</p>
+        </div>
+    </div>
+
+    <!-- Special Offerings -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h2>Open Gym Hours</h2>
+            <p>Join us during our open hours and get unrestricted access to the entire gym. Train at your own pace, your way.</p>
+        </div>
+        <div class="col-md-6">
+            <h2>Personal Training</h2>
+            <p>Seeking a more tailored approach? Our personal trainers are here to guide, motivate, and push you towards your fitness goals.</p>
+        </div>
+    </div>
+
+    <!-- New Group Lessons -->
+    <div class="row mt-5">
+        <div class="col">
+            <h2>New! Group Lessons</h2>
+            <p>By popular demand, we're excited to introduce group lessons. Come, be a part of the community, and train together!</p>
+            <a class="btn btn-primary" asp-area="" asp-controller="Members" asp-action="Create">Learn More & Join</a>
+        </div>
+    </div>
+</div>

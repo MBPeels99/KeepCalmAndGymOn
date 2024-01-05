@@ -1,0 +1,150 @@
+@model IEnumerable<KeepCalmGymApplication.Models.GymClass>
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Available Classes";
+}
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+    var username = session.GetString("UserName");
+    var personId = session.GetInt32("PersonID");
+    var userType = session.GetString("UserType");
+    var userRedict = userType + 's';
+    var currentDate = DateTime.Today;
+}
+
+<h1>Available Classes</h1>
+<!-- Filter form ends here -->
+
+<table class="table" id="gymClassesTable">
+    <thead>
+        <tr>
+            <th>Name of Class</th>
+            <th>Instructor Name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Category</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="gymClassesBody">
+        @foreach (var gymClass in Model.Where(gc => gc.Date >= currentDate))
+        {
+            <tr>
+                <td>@gymClass.ClassName</td>
+                <td>@gymClass.Instructor.FirstName @gymClass.Instructor.LastName</td>
+                <td>@gymClass.Date.ToShortDateString()</td>
+                <td>@gymClass.Time.ToString(@"hh\:mm")</td>
+                <td>@gymClass.Category</td>
+                <td>
+                    <button class="btn joinBtn" data-class-id="@gymClass.ClassID">Join</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts
+    {
+    <!-- Include DataTables CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // Initialize DataTables
+            const table = $('#gymClassesTable').DataTable();
+
+            function setButtonAppearance(btn, isJoined) {
+                /// <summary>
+                /// Sets the button appearance.
+                /// </summary>
+                /// <param name="btn">The BTN.</param>
+                /// <param name="isJoined">The is joined.</param>
+                if (isJoined) {
+                    btn.text("Joined");
+                    btn.removeClass("btn-primary").addClass("btn-secondary");
+                } else {
+                    btn.text("Join");
+                    btn.removeClass("btn-secondary").addClass("btn-primary");
+                }
+            }
+
+            fetch('/data/categories.json')
+                .then(response => response.json())
+                /// <summary>
+                /// </summary>
+                /// <param name="response">The response.</param>
+                .then(categories => {
+                    const dropdown = $('#categoryFilter');
+                    categories.forEach(category => {
+                        /// <summary>
+                        /// </summary>
+                        /// <param name="category">The category.</param>
+                        dropdown.append(new Option(category, category));
+                    });
+                });
+
+            fetch('/GymClass/GetInstructors')
+                .then(response => response.json())
+                /// <summary>
+                /// </summary>
+                /// <param name="response">The response.</param>
+                .then(instructors => {
+                    const dropdown = $('#instructorFilter');
+                    instructors.forEach(instructor => {
+                        /// <summary>
+                        /// </summary>
+                        /// <param name="instructor">The instructor.</param>
+                        dropdown.append(new Option(instructor.Text, instructor.Value));
+                    });
+                });
+
+
+            $.get("/GymClassAttendance/GetJoinedClasses")
+                .done(function (data) {
+                    /// <summary>
+                    /// </summary>
+                    /// <param name="data">The data.</param>
+                    $('.joinBtn').each(function () {
+                        /// <summary>
+                        /// </summary>
+                        var classId = $(this).data('class-id');
+                        var isJoined = data.includes(classId);
+                        setButtonAppearance($(this), isJoined);
+                    });
+                })
+                .fail(function () {
+                    /// <summary>
+                    /// </summary>
+                    alert("Failed to fetch joined classes. Please refresh the page.");
+                });
+
+            $('.joinBtn').click(function () {
+                /// <summary>
+                /// </summary>
+                var btn = $(this);
+                var classId = btn.data('class-id');
+                var isJoined = btn.text() === "Joined";
+
+                $.post("/GymClassAttendance/JoinClass", { id: classId })
+                    .done(function () {
+                        /// <summary>
+                        /// </summary>
+                        setButtonAppearance(btn, !isJoined);
+                        if (isJoined) {
+                            alert("Removed successfully!");
+                        } else {
+                            alert("Joined successfully!");
+                        }
+                    })
+                    .fail(function () {
+                        /// <summary>
+                        /// </summary>
+                        alert("Error occurred. Try again.");
+                    });
+            });
+        });
+    </script>
+}

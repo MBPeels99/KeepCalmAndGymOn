@@ -1,0 +1,120 @@
+@model IEnumerable<KeepCalmGymApplication.Models.Payment>
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <button class="btn btn-success" id="acceptAllPayments">Accept All Payments</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Date)</th>
+            <th>@Html.DisplayNameFor(model => model.Amount)</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Payment Reference</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                <td>@Html.DisplayFor(modelItem => item.Member.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Member.LastName)</td>
+                <td>@(item.Member.Username + item.MemberID.ToString())</td> 
+                <td>
+                    <button class="btn btn-primary confirm-payment" data-payment-id="@item.PaymentID">Confirm Payment</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        document.getElementById('acceptAllPayments').addEventListener('click', function () {
+            /// <summary>
+            /// </summary>
+            acceptAllPayments();
+        });
+
+        function acceptAllPayments() {
+            /// <summary>
+            /// Accepts all payments.
+            /// </summary>
+            let paymentIds = [];
+
+            // Collect all payment IDs
+            $('.confirm-payment').each(function () {
+                /// <summary>
+                /// </summary>
+                paymentIds.push($(this).data('payment-id'));
+            });
+
+            if (paymentIds.length === 0) {
+                alert('No payments to confirm.');
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("ConfirmAllPayments", "Payment")',
+                type: 'POST',
+                data: JSON.stringify(paymentIds),
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    /// <summary>
+                    /// </summary>
+                    /// <param name="response">The response.</param>
+                    alert('All payments confirmed successfully.');
+                    location.reload(); // Refresh the page
+                },
+                error: function (error) {
+                    /// <summary>
+                    /// </summary>
+                    /// <param name="error">The error.</param>
+                    alert('Error confirming all payments.');
+                }
+            });
+        }
+
+
+        $(document).ready(function () {
+            /// <summary>
+            /// </summary>
+            $('.confirm-payment').click(function () {
+                /// <summary>
+                /// </summary>
+                var paymentId = $(this).data('payment-id');
+
+                $.ajax({
+                    url: '@Url.Action("ConfirmPayment", "Payment")',
+                    type: 'POST',
+                    data: { id: paymentId },
+                    success: function (response) {
+                        // Handle success - you might want to remove the row or show a success message
+                        /// <summary>
+                        /// </summary>
+                        /// <param name="response">The response.</param>
+                        alert('Payment confirmed successfully.');
+                        location.reload(); // Refresh the page
+                    },
+                    error: function (error) {
+                        // Handle error
+                        /// <summary>
+                        /// </summary>
+                        /// <param name="error">The error.</param>
+                        alert('Error confirming payment.');
+                    }
+                });
+            });
+        });
+    </script>
+}

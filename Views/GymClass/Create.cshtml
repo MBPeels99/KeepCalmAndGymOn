@@ -1,0 +1,118 @@
+@model KeepCalmGymApplication.Models.GymClass
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Create Gym Class";
+}
+
+<h1>Create Gym Class</h1>
+
+<h4>GymClass</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClassName" class="control-label">Class Name:</label>
+                <input asp-for="ClassName" name="ClassName" class="form-control" />
+                <span asp-validation-for="ClassName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstructorID" class="control-label">Instructor:</label>
+                <select asp-for="InstructorID" name="InstructorID" id="InstructorID" class="form-control" asp-items="ViewBag.InstructorID"></select>
+                <span asp-validation-for="InstructorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">Date:</label>
+                <input asp-for="Date" name="Date" class="form-control" type="date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time" class="control-label">Time:</label>
+                <input asp-for="Time" name="Time" class="form-control" type="time" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Capacity" class="control-label">Capacity:</label>
+                <input asp-for="Capacity" name="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label">Category:</label>
+                <select asp-for="Category" name="Category" id="Category" class="form-control" ></select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="button" onclick="submitGymClassForm();" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/js/gymClassFormValidation.js"></script>
+    <script>
+        /// <var>The create gym class URL</var>
+        var createGymClassUrl = '@Url.Action("Create", "GymClass")';
+        /// <var>The index URL</var>
+        var indexUrl = '@Url.Action("Index", "GymClass")';
+
+        document.addEventListener("DOMContentLoaded", function () { // Ensure the DOM is fully loaded
+            /// <summary>
+            /// </summary>
+            fetch('/GymClass/GetInstructors') // Adjust the URL if needed
+                .then(response => response.json())
+                /// <summary>
+                /// </summary>
+                /// <param name="response">The response.</param>
+                .then(data => {
+                    const dropdown = document.querySelector('[name="InstructorID"]');
+                    data.forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item.value;
+                        option.textContent = item.text;
+                        dropdown.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching instructors:', error);
+                });
+
+            fetch('/data/categories.json')  // Fetching directly from the static file in wwwroot
+                .then(response => {
+                    // Check if the request was successful
+                    /// <summary>
+                    /// </summary>
+                    /// <param name="response">The response.</param>
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const dropdown = document.querySelector('[name="Category"]');
+                    data.forEach(category => {
+                        const option = document.createElement('option');
+                        option.value = category;   // Since the category itself is the value
+                        option.textContent = category;  // Display text is also the category
+                        dropdown.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching categories:', error);
+                });
+
+        });
+
+    </script>
+}

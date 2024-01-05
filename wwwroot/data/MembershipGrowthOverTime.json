@@ -1,0 +1,16 @@
+{
+  "type": "line",
+  "data": {
+    "labels": "GetLabelsFunctionName",
+    "datasets": [
+      {
+        "label": "Number of Memberships",
+        "data": "MembershipGrowthOverTime",
+        "labelProperty": "Date",
+        "dataProperty": "Count",
+        "backgroundColor": "rgba(75, 192, 192, 0.2)",
+        "borderColor": "rgba(75, 192, 192, 1)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "line",
+  "data": {
+    "labels": "GetLabelsFunctionName",
+    "datasets": [
+      {
+        "label": "Attendance Count",
+        "data": "AttendanceTrendOverTime",
+        "labelProperty": "Date",
+        "dataProperty": "Count",
+        "backgroundColor": "rgba(255, 99, 132, 0.2)",
+        "borderColor": "rgba(255, 99, 132, 1)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+@model IEnumerable<KeepCalmGymApplication.Models.Report>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Reports Index";
+}
+
+<h1>REPORTS</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Report Name</th>
+            <th>Type</th>
+            <th>Label</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ReportName</td>
+                <td>@item.ChartType</td>
+                <td>@item.Label</td>
+                <td>
+                    <button class="btn btn-primary" onclick="redirectTo('Details', '@item.ReportID')">View</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    /// <summary>
+    /// Redirects to.
+    /// </summary>
+    /// <param name="action">The action.</param>
+    /// <param name="id">The identifier.</param>
+    function redirectTo(action, id = null) {
+        if (id) {
+            window.location.href = 'Report/' + action + '/' + id;
+        } else {
+            window.location.href = '/' + action;
+        }
+    }
+</script>

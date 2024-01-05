@@ -1,0 +1,141 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+    var username = session.GetString("UserName");
+    var personId = session.GetInt32("PersonID");
+    var userType = session.GetString("UserType");
+    var userRedict = userType + 's';
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - KeepCalmGymApplication</title>
+
+    <!-- Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Local Styles -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/KeepCalmGymApplication.styles.css" asp-append-version="true" />
+
+    <!-- FullCalendar CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper.js for Bootstrap 4 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS from CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Home/Index">KeepCalmGymApplication</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                    </ul>
+                    @if (userType == "GymEmployee" && personId.HasValue) // Ensure UserType is Employee and there's a session for PersonID
+                    {
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a b-pq3w26g0mp class="nav-link dropdown-toggle" href="#" id="gymEmployeeDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    Gym Employee Features
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="gymEmployeeDropdown">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="GymEmployees" asp-action="Index">View GymEmployee</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Members" asp-action="Index">View Members</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="GymClass" asp-action="Index">View GymClasses</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Payment" asp-action="Index">View Payments</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="Index">View Reports</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    @if (userType == "Member" && personId.HasValue) // New logic for Member
+                    {
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="GymClassAttendance" asp-action="Index">Join a Gym Class</a>
+                            </li>
+                        </ul>
+                    }
+
+                    <ul class="navbar-nav">
+                        @if (!string.IsNullOrEmpty(username))
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link">@username</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="@userRedict" asp-action="Details" asp-route-id="@personId">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            // Check if the current page is the Login page
+                            if (Context.Request.Path.Equals("/Account/Login", StringComparison.OrdinalIgnoreCase))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Members" asp-action="Create">Sign Up</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="footer mt-5">
+            <p>&copy; 2023 Keep Calm and Squat On. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- Local scripts and other JS libraries -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/memberFormValidation.js"></script>
+
+    <!-- FullCalendar JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

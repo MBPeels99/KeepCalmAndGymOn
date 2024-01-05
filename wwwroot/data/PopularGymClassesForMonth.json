@@ -1,0 +1,16 @@
+{
+  "type": "bar",
+  "data": {
+    "labels": "GetLabelsFunctionName",
+    "datasets": [
+      {
+        "label": "Class Attendance",
+        "data": "PopularGymClassesForYear",
+        "labelProperty": "ClassName",
+        "dataProperty": "AttendanceCount",
+        "backgroundColor": "rgba(255, 206, 86, 0.2)",
+        "borderColor": "rgba(255, 206, 86, 1)"
+      }
+    ]
+  }
+}

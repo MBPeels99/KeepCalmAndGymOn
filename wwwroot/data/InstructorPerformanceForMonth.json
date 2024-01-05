@@ -1,0 +1,14 @@
+{
+  "type": "bar",
+  "data": {
+    "labels": "PLACEHOLDER_LABELS",
+    "datasets": [
+      {
+        "label": "Average Class Attendance",
+        "data": "PLACEHOLDER_DATA",
+        "backgroundColor": "rgba(54, 162, 235, 0.2)",
+        "borderColor": "rgba(54, 162, 235, 1)"
+      }
+    ]
+  }
+}

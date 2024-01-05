@@ -1,0 +1,31 @@
+{
+  "memberships": {
+    "Silver": {
+      "description": "The Silver tier provides a fundamental gym experience tailored for individuals who are looking to begin or maintain their fitness journey. A perfect choice for those seeking both affordability and quality.",
+      "details": [
+        "Unlimited access to our state-of-the-art gym facilities during regular hours, offering a range of cardio and strength training equipment.",
+        "Join group fitness classes ranging from HIIT to Yoga, ensuring there's always something new to try and a community waiting to support you.",
+        "Access to basic locker facilities, ensuring your belongings remain safe while you exercise."
+      ]
+    },
+    "Gold": {
+      "description": "The Gold tier introduces an enhanced fitness experience. It's designed for those who appreciate a little more luxury and assistance in their routine. It's our most popular choice, balancing cost with an expanded range of perks.",
+      "details": [
+        "Everything the Silver Membership offers and more.",
+        "Priority booking for group fitness classes, ensuring you never miss out on your favorite sessions.",
+        "2 hours of personal training sessions every week. Collaborate with experienced trainers who will provide a fitness regimen that addresses your unique needs.",
+        "Your personal locker, giving you a dedicated space for your gym essentials, so you're always prepared."
+      ]
+    },
+    "Platinum": {
+      "description": "The Platinum tier represents the pinnacle of our offerings, merging exclusivity with unmatched amenities. It's meticulously designed for those who demand the very best in their fitness journey.",
+      "details": [
+        "Everything the Gold Membership offers, plus additional elite benefits.",
+        "24/7 gym access. Whether you're an early bird or a night owl, our gym is always open for you. Train on your own schedule, free from the constraints of regular operational hours.",
+        "4 hours of personal training sessions every week. These extended hours ensure you're always progressing, always challenging yourself, and always under the guidance of our top trainers.",
+        "Exclusive access to our luxurious locker rooms, reminiscent of a spa retreat. Enjoy premium amenities including steam rooms, saunas, and plush lounging areas.",
+        "Never worry about parking with your reserved priority parking space. Plus, benefit from a dedicated member service hotline, ensuring instant assistance whenever required."
+      ]
+    }
+  }
+}

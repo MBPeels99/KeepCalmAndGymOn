@@ -1,0 +1,117 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\KeepCalmGymApplication.bundle.scp.css",
+      "PackagePath": "staticwebassets\\KeepCalmGymApplication.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\data\\AttendanceTrendOverTime.json",
+      "PackagePath": "staticwebassets\\data\\AttendanceTrendOverTime.json"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\data\\InstructorPerformanceForMonth.json",
+      "PackagePath": "staticwebassets\\data\\InstructorPerformanceForMonth.json"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\data\\MembershipGrowthOverTime.json",
+      "PackagePath": "staticwebassets\\data\\MembershipGrowthOverTime.json"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\data\\MembershipRevenueOverTime.json",
+      "PackagePath": "staticwebassets\\data\\MembershipRevenueOverTime.json"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\data\\PopularGymClassesForMonth.json",
+      "PackagePath": "staticwebassets\\data\\PopularGymClassesForMonth.json"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\data\\categories.json",
+      "PackagePath": "staticwebassets\\data\\categories.json"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\data\\contractDetails.json",
+      "PackagePath": "staticwebassets\\data\\contractDetails.json"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\images\\bodybuilding-icon.png",
+      "PackagePath": "staticwebassets\\images\\bodybuilding-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\images\\pilates-icon.png",
+      "PackagePath": "staticwebassets\\images\\pilates-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\images\\weightlifting-icon.png",
+      "PackagePath": "staticwebassets\\images\\weightlifting-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\images\\yoga-icon.png",
+      "PackagePath": "staticwebassets\\images\\yoga-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\js\\gymClassFormValidation.js",
+      "PackagePath": "staticwebassets\\js\\gymClassFormValidation.js"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\js\\gymEmployeeFormValidation.js",
+      "PackagePath": "staticwebassets\\js\\gymEmployeeFormValidation.js"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\js\\memberFormValidation.js",
+      "PackagePath": "staticwebassets\\js\\memberFormValidation.js"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Gebruiker\\Documents\\NWU\\2023\\CMPG 223\\GROUP PROJECT\\Project\\gymapplication\\KeepCalmGymApplication\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.KeepCalmGymApplication.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.KeepCalmGymApplication.props",
+      "PackagePath": "build\\KeepCalmGymApplication.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.KeepCalmGymApplication.props",
+      "PackagePath": "buildMultiTargeting\\KeepCalmGymApplication.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.KeepCalmGymApplication.props",
+      "PackagePath": "buildTransitive\\KeepCalmGymApplication.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

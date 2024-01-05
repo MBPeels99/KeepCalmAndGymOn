@@ -1,0 +1,90 @@
+@model KeepCalmGymApplication.Models.GymEmployee
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>GymEmployee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- First Name -->
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">First Name:</label>
+                <input asp-for="FirstName" name="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">Last Name:</label>
+                <input asp-for="LastName" name="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <!-- Username -->
+            <div class="form-group">
+                <label asp-for="Username" class="control-label">Username:</label>
+                <input asp-for="Username" name="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label asp-for="ContactDetails" class="control-label">Email:</label>
+                <input asp-for="ContactDetails" name="ContactDetails" class="form-control" />
+                <span asp-validation-for="ContactDetails" class="text-danger"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password:</label>
+                <input asp-for="Password" name="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <!-- Speciality -->
+            <div class="form-group">
+                <label asp-for="Speciality" class="control-label">Speciality:</label>
+                <input asp-for="Speciality" name="Speciality" class="form-control" />
+                <span asp-validation-for="Speciality" class="text-danger"></span>
+            </div>
+
+            <!-- Certification -->
+            <div class="form-group">
+                <label asp-for="Certification" class="control-label">Certification:</label>
+                <input asp-for="Certification" name="Certification" class="form-control" />
+                <span asp-validation-for="Certification" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="button" onclick="submitEmployeeForm();" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        /// <var>The create employee URL</var>
+        var createEmployeeUrl = '@Url.Action("Create", "GymEmployees")';
+        /// <var>The index URL</var>
+        var indexUrl = '@Url.Action("Index", "GymEmployees")';
+    </script>
+
+    <script src="~/js/gymEmployeeFormValidation.js"></script>
+}

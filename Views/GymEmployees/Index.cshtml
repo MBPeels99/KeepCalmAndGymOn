@@ -1,0 +1,75 @@
+@model IEnumerable<KeepCalmGymApplication.Models.GymEmployee>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <button type="button" class="btn btn-primary" onclick="redirectToAction('Create')">Create New</button>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Speciality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactDetails)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Speciality)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Certification)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactDetails)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="redirectToAction('Edit', '@item.PersonID')">Edit</button> |
+                    <button type="button" class="btn btn-secondary" onclick="redirectToAction('Details', '@item.PersonID')">Details</button> |
+                    <button type="button" class="btn btn-danger" onclick="redirectToAction('Delete', '@item.PersonID')">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function redirectToAction(action, id) {
+        /// <summary>
+        /// Redirects to action.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        /// <param name="id">The identifier.</param>
+        var baseUrl = '@Url.Content("~/")'; // Get the base URL
+        var url = baseUrl + 'GymEmployees/' + action + '/' + id; // Note that we changed 'Members' to 'GymEmployees' here
+        window.location.href = url; // Redirect to the desired URL
+    }
+</script>

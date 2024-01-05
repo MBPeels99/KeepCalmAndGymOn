@@ -1,0 +1,63 @@
+@model KeepCalmGymApplication.Models.GymEmployee
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>GymEmployee</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Speciality)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Speciality)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Certification)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Certification)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ContactDetails)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ContactDetails)
+        </dd>
+    </dl>
+</div>
+<div>
+    <button onclick="redirectToEdit()" class="btn btn-primary">Edit</button>
+</div>
+@section Scripts {
+    <script>
+        function redirectToEdit() {
+            /// <summary>
+            /// Redirects to edit.
+            /// </summary>
+            var personId = "@Model?.PersonID";
+            var url = '@Url.Action("Edit", "GymEmployees", new { id = "_id_" })'.replace("_id_", @Model.PersonID);
+            window.location.href = url;
+        }
+    </script>
+
+}
+

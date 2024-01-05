@@ -1,0 +1,74 @@
+@model KeepCalmGymApplication.Models.Member
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+
+<h1>Create</h1>
+
+<h4>Member</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">First Name:</label>
+                <input asp-for="FirstName" name="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">Last Name:</label>
+                <input asp-for="LastName" name="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label">Username:</label>
+                <input asp-for="Username" name="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label">Date Of Birth:</label>
+                <input asp-for="DateOfBirth" name="DateOfBirth" class="form-control" type="date" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactDetails" class="control-label">Email:</label>
+                <input asp-for="ContactDetails" name="ContactDetails" class="form-control" />
+                <span asp-validation-for="ContactDetails" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password:</label>
+                <input asp-for="Password" name="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <button type="button" onclick="submitForm();" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        /// <var>The create member URL</var>
+        var createMemberUrl = '@Url.Action("Create", "Members")';
+        /// <var>The index URL</var>
+        var indexUrl = '@Url.Action("Index", "Members")';
+    </script>
+
+    <script src="~/js/memberFormValidation.js"></script>
+}
+
+
